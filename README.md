@@ -59,7 +59,27 @@ date_studied: 2026-02-22
 
 ## Installation
 
-### Manual (Development)
+### Via BRAT (recommended for early access)
+
+[BRAT](https://github.com/TfTHacker/obsidian42-brat) lets you install plugins directly from GitHub before they are listed in the community store.
+
+1. Install [BRAT](https://obsidian.md/plugins?id=obsidian42-brat) from the community plugin store.
+2. In Obsidian: **Settings → BRAT → Add Beta Plugin**.
+3. Enter `admiller007/Sefaria-obsidian` and click **Add Plugin**.
+4. Enable **Sefaria Integration** in **Settings → Community Plugins**.
+
+BRAT will notify you when a new release is published and can update the plugin automatically.
+
+### From a GitHub release (manual)
+
+1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/admiller007/Sefaria-obsidian/releases/latest).
+2. Copy them into your vault:
+   ```
+   <vault>/.obsidian/plugins/sefaria-integration/
+   ```
+3. Enable **Sefaria Integration** in **Settings → Community Plugins**.
+
+### Manual (build from source)
 
 1. Clone this repo:
    ```bash
@@ -127,6 +147,21 @@ date_studied: {{date}}
 ```
 
 Available template variables: `{{ref}}`, `{{title}}`, `{{hebrew}}`, `{{english}}`, `{{categories}}`, `{{date}}`
+
+---
+
+## Releasing a new version
+
+1. Bump the version (updates `manifest.json` and `versions.json` automatically):
+   ```bash
+   npm version patch   # or minor / major
+   ```
+2. Push the tag to GitHub:
+   ```bash
+   git push --follow-tags
+   ```
+
+The [GitHub Actions release workflow](.github/workflows/release.yml) picks up the tag, builds the plugin, and publishes a release with `main.js`, `manifest.json`, and `styles.css` attached.
 
 ---
 
