@@ -1,0 +1,11 @@
+{
+  "id": "sefaria-integration",
+  "name": "Sefaria Integration",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Detect Torah references in your notes with inline hover previews (Hebrew + English) linked to Sefaria's corpus.",
+  "author": "admiller007",
+  "authorUrl": "https://github.com/admiller007",
+  "fundingUrl": "",
+  "isDesktopOnly": false
+}

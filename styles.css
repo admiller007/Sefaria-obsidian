@@ -1,0 +1,304 @@
+/* ============================================================
+   Sefaria Integration Plugin — styles.css
+   ============================================================ */
+
+/* ----------------------------------------------------------------
+   Inline reference decorations
+   ---------------------------------------------------------------- */
+
+/* Underline style (default) */
+.sefaria-ref-underline {
+	text-decoration: underline dotted var(--color-accent);
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+
+/* Highlight style */
+.sefaria-ref-highlight {
+	background-color: rgba(var(--color-accent-rgb), 0.15);
+	border-radius: 3px;
+	padding: 0 2px;
+	cursor: pointer;
+}
+
+/* ----------------------------------------------------------------
+   Hover / popover card
+   ---------------------------------------------------------------- */
+
+.sefaria-popover {
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	max-width: 480px;
+	min-width: 280px;
+	padding: 16px;
+	font-size: var(--font-ui-small);
+	line-height: 1.6;
+	z-index: 1000;
+}
+
+.sefaria-popover-header {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	padding-bottom: 8px;
+}
+
+.sefaria-popover-ref {
+	font-weight: 600;
+	color: var(--text-normal);
+	font-size: var(--font-ui-medium);
+}
+
+.sefaria-popover-he-ref {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	direction: rtl;
+}
+
+/* Hebrew text block — RTL */
+.sefaria-popover-hebrew {
+	direction: rtl;
+	text-align: right;
+	font-family: var(--font-text);
+	font-size: 1.05em;
+	line-height: 1.7;
+	color: var(--text-normal);
+	margin-bottom: 8px;
+	padding: 8px;
+	background: var(--background-secondary);
+	border-radius: 6px;
+}
+
+/* English translation block */
+.sefaria-popover-english {
+	direction: ltr;
+	text-align: left;
+	font-family: var(--font-text);
+	color: var(--text-muted);
+	margin-bottom: 8px;
+	padding: 8px;
+	background: var(--background-secondary);
+	border-radius: 6px;
+}
+
+/* Attribution + external link row */
+.sefaria-popover-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 1px solid var(--background-modifier-border);
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+}
+
+.sefaria-popover-attribution {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.sefaria-popover-attribution img {
+	height: 16px;
+	opacity: 0.7;
+}
+
+.sefaria-popover-link {
+	color: var(--color-accent);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.sefaria-popover-link:hover {
+	text-decoration: underline;
+}
+
+/* Loading state */
+.sefaria-popover-loading {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--text-muted);
+	padding: 8px 0;
+}
+
+.sefaria-popover-loading::before {
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid var(--background-modifier-border);
+	border-top-color: var(--color-accent);
+	border-radius: 50%;
+	animation: sefaria-spin 0.7s linear infinite;
+}
+
+@keyframes sefaria-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Error state */
+.sefaria-popover-error {
+	color: var(--text-error);
+	font-size: var(--font-ui-small);
+	padding: 4px 0;
+}
+
+/* Suggestion list for "did you mean?" */
+.sefaria-popover-suggestions {
+	margin-top: 6px;
+}
+
+.sefaria-popover-suggestions p {
+	margin: 0 0 4px;
+	font-weight: 500;
+}
+
+.sefaria-popover-suggestions ul {
+	margin: 0;
+	padding-left: 16px;
+}
+
+.sefaria-popover-suggestions li {
+	cursor: pointer;
+	color: var(--color-accent);
+}
+
+.sefaria-popover-suggestions li:hover {
+	text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   Sidebar — Daily Learning
+   ---------------------------------------------------------------- */
+
+.sefaria-sidebar {
+	padding: 12px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	overflow-y: auto;
+}
+
+.sefaria-sidebar-title {
+	font-size: var(--font-ui-medium);
+	font-weight: 700;
+	color: var(--text-normal);
+	margin: 0 0 4px;
+}
+
+.sefaria-sidebar-date {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	margin-bottom: 8px;
+}
+
+.sefaria-calendar-item {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	padding: 10px 12px;
+	cursor: pointer;
+	transition: background 0.15s ease;
+}
+
+.sefaria-calendar-item:hover {
+	background: var(--background-secondary-alt);
+}
+
+.sefaria-calendar-item-category {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 2px;
+}
+
+.sefaria-calendar-item-title {
+	font-weight: 600;
+	color: var(--text-normal);
+}
+
+.sefaria-calendar-item-he {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	direction: rtl;
+	text-align: right;
+}
+
+.sefaria-calendar-item-ref {
+	font-size: var(--font-ui-smaller);
+	color: var(--color-accent);
+	margin-top: 4px;
+}
+
+.sefaria-sidebar-pinned {
+	border-top: 1px solid var(--background-modifier-border);
+	padding-top: 10px;
+}
+
+.sefaria-sidebar-pinned-title {
+	font-size: var(--font-ui-smaller);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--text-faint);
+	margin-bottom: 6px;
+}
+
+.sefaria-sidebar-loading {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	padding: 8px 0;
+}
+
+.sefaria-sidebar-error {
+	color: var(--text-error);
+	font-size: var(--font-ui-small);
+}
+
+/* ----------------------------------------------------------------
+   Search modal
+   ---------------------------------------------------------------- */
+
+.sefaria-modal .sefaria-search-input {
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+.sefaria-modal .sefaria-search-results {
+	max-height: 360px;
+	overflow-y: auto;
+}
+
+.sefaria-search-result-item {
+	padding: 8px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.sefaria-search-result-item:hover {
+	background: var(--background-secondary);
+}
+
+.sefaria-search-result-ref {
+	font-weight: 600;
+	color: var(--text-normal);
+	font-size: var(--font-ui-small);
+}
+
+.sefaria-search-result-excerpt {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	margin-top: 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
