@@ -59,6 +59,18 @@ date_studied: 2026-02-22
 
 ## Installation
 
+### From GitHub Releases
+
+1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/admiller007/Sefaria-obsidian/releases/latest).
+2. Create a folder at `/path/to/your/vault/.obsidian/plugins/sefaria-integration/` and place the three files inside.
+3. In Obsidian: **Settings -> Community Plugins -> Installed Plugins** -> enable **Sefaria Integration**.
+
+### Via BRAT
+
+1. Install the [BRAT plugin](https://github.com/TfTHacker/obsidian42-brat).
+2. In BRAT settings, click **Add Beta plugin** and enter: `admiller007/Sefaria-obsidian`
+3. Enable the plugin in Community Plugins settings.
+
 ### Manual (Development)
 
 1. Clone this repo:
@@ -154,6 +166,19 @@ styles.css         Hover popover, inline decorations, sidebar, search modal
 
 - Obsidian ≥ 1.4.0
 - Node.js ≥ 16 (for building)
+
+---
+
+## Releasing
+
+To publish a new version:
+
+```bash
+npm version patch   # or minor / major
+git push --follow-tags
+```
+
+This bumps `manifest.json` and `versions.json` via `version-bump.mjs`, then the GitHub Actions workflow builds and publishes a release with `main.js`, `manifest.json`, and `styles.css`.
 
 ---
 
